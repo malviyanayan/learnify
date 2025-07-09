@@ -1,0 +1,408 @@
+create database elpdb;
+
+use elpdb;
+
+
+CREATE TABLE status (
+    status_id INT PRIMARY KEY AUTO_INCREMENT,
+    name CHAR(25) NOT NULL
+);
+
+insert into status (name) values ("Active"),("Inactive"),("Launched"),("Stopped"),("Started"),("Ended"),("Paid"),("Unpaid");
+
+CREATE TABLE countries (
+    country_id INT PRIMARY KEY AUTO_INCREMENT,
+    name CHAR(50) NOT NULL,
+    flag CHAR(50) NOT NULL,
+    country_code INT NOT NULL
+);
+
+INSERT INTO countries (name, flag, country_code) VALUES
+('Afghanistan', 'af.svg', 93),
+('Albania', 'al.svg', 355),
+('Algeria', 'dz.svg', 213),
+('Andorra', 'ad.svg', 376),
+('Angola', 'ao.svg', 244),
+('Argentina', 'ar.svg', 54),
+('Armenia', 'am.svg', 374),
+('Australia', 'au.svg', 61),
+('Austria', 'at.svg', 43),
+('Azerbaijan', 'az.svg', 994),
+('Bahamas', 'bs.svg', 1),
+('Bahrain', 'bh.svg', 973),
+('Bangladesh', 'bd.svg', 880),
+('Belarus', 'by.svg', 375),
+('Belgium', 'be.svg', 32),
+('Belize', 'bz.svg', 501),
+('Benin', 'bj.svg', 229),
+('Bhutan', 'bt.svg', 975),
+('Bolivia', 'bo.svg', 591),
+('Bosnia and Herzegovina', 'ba.svg', 387),
+('Botswana', 'bw.svg', 267),
+('Brazil', 'br.svg', 55),
+('Brunei', 'bn.svg', 673),
+('Bulgaria', 'bg.svg', 359),
+('Burkina Faso', 'bf.svg', 226),
+('Burundi', 'bi.svg', 257),
+('Cambodia', 'kh.svg', 855),
+('Cameroon', 'cm.svg', 237),
+('Canada', 'ca.svg', 1),
+('Central African Republic', 'cf.svg', 236),
+('Chad', 'td.svg', 235),
+('Chile', 'cl.svg', 56),
+('China', 'cn.svg', 86),
+('Colombia', 'co.svg', 57),
+('Comoros', 'km.svg', 269),
+('Congo', 'cg.svg', 242),
+('Costa Rica', 'cr.svg', 506),
+('Croatia', 'hr.svg', 385),
+('Cuba', 'cu.svg', 53),
+('Cyprus', 'cy.svg', 357),
+('Czech Republic', 'cz.svg', 420),
+('Denmark', 'dk.svg', 45),
+('Djibouti', 'dj.svg', 253),
+('Dominican Republic', 'do.svg', 1),
+('Ecuador', 'ec.svg', 593),
+('Egypt', 'eg.svg', 20),
+('El Salvador', 'sv.svg', 503),
+('Estonia', 'ee.svg', 372),
+('Ethiopia', 'et.svg', 251),
+('Fiji', 'fj.svg', 679),
+('Finland', 'fi.svg', 358),
+('France', 'fr.svg', 33),
+('Gabon', 'ga.svg', 241),
+('Gambia', 'gm.svg', 220),
+('Georgia', 'ge.svg', 995),
+('Germany', 'de.svg', 49),
+('Ghana', 'gh.svg', 233),
+('Greece', 'gr.svg', 30),
+('Guatemala', 'gt.svg', 502),
+('Honduras', 'hn.svg', 504),
+('Hungary', 'hu.svg', 36),
+('Iceland', 'is.svg', 354),
+('India', 'in.svg', 91),
+('Indonesia', 'id.svg', 62),
+('Iran', 'ir.svg', 98),
+('Iraq', 'iq.svg', 964),
+('Ireland', 'ie.svg', 353),
+('Israel', 'il.svg', 972),
+('Italy', 'it.svg', 39),
+('Jamaica', 'jm.svg', 1),
+('Japan', 'jp.svg', 81),
+('Jordan', 'jo.svg', 962),
+('Kazakhstan', 'kz.svg', 7),
+('Kenya', 'ke.svg', 254),
+('Kuwait', 'kw.svg', 965),
+('Laos', 'la.svg', 856),
+('Latvia', 'lv.svg', 371),
+('Lebanon', 'lb.svg', 961),
+('Libya', 'ly.svg', 218),
+('Lithuania', 'lt.svg', 370),
+('Luxembourg', 'lu.svg', 352),
+('Malaysia', 'my.svg', 60),
+('Maldives', 'mv.svg', 960),
+('Mexico', 'mx.svg', 52),
+('Monaco', 'mc.svg', 377),
+('Mongolia', 'mn.svg', 976),
+('Morocco', 'ma.svg', 212),
+('Nepal', 'np.svg', 977),
+('Netherlands', 'nl.svg', 31),
+('New Zealand', 'nz.svg', 64),
+('Nigeria', 'ng.svg', 234),
+('North Korea', 'kp.svg', 850),
+('Norway', 'no.svg', 47),
+('Oman', 'om.svg', 968),
+('Pakistan', 'pk.svg', 92),
+('Palestine', 'ps.svg', 970),
+('Panama', 'pa.svg', 507),
+('Peru', 'pe.svg', 51),
+('Philippines', 'ph.svg', 63),
+('Poland', 'pl.svg', 48),
+('Portugal', 'pt.svg', 351),
+('Qatar', 'qa.svg', 974),
+('Romania', 'ro.svg', 40),
+('Russia', 'ru.svg', 7),
+('Saudi Arabia', 'sa.svg', 966),
+('Singapore', 'sg.svg', 65),
+('South Africa', 'za.svg', 27),
+('South Korea', 'kr.svg', 82),
+('Spain', 'es.svg', 34),
+('Sri Lanka', 'lk.svg', 94),
+('Sudan', 'sd.svg', 249),
+('Sweden', 'se.svg', 46),
+('Switzerland', 'ch.svg', 41),
+('Syria', 'sy.svg', 963),
+('Taiwan', 'tw.svg', 886),
+('Thailand', 'th.svg', 66),
+('Tunisia', 'tn.svg', 216),
+('Turkey', 'tr.svg', 90),
+('Ukraine', 'ua.svg', 380),
+('United Arab Emirates', 'ae.svg', 971),
+('United Kingdom', 'uk.svg', 44),
+('United States', 'us.svg', 1),
+('Vietnam', 'vn.svg', 84),
+('Yemen', 'ye.svg', 967),
+('Zimbabwe', 'zw.svg', 263);
+
+
+CREATE TABLE user_types (
+    user_type_id INT PRIMARY KEY AUTO_INCREMENT,
+    name CHAR(25) NOT NULL
+);
+
+insert into user_types (name) values ("Subscriber"),("Trainer");
+
+CREATE TABLE users (
+    user_id INT PRIMARY KEY AUTO_INCREMENT,
+    name CHAR(50) NOT NULL,
+    email CHAR(255) NOT NULL UNIQUE,
+    about_me VARCHAR(2000),
+    password CHAR(255) NOT NULL,
+    profile_pic CHAR(255) DEFAULT 'profile_pic.png',
+    phone CHAR(10) NOT NULL UNIQUE,
+    dob DATE,
+    gender CHAR(1),
+    status_id INT NOT NULL DEFAULT 2,
+    created_on DATETIME NOT NULL,
+    country_id INT NOT NULL,
+    user_type_id INT NOT NULL DEFAULT 1,
+    FOREIGN KEY (status_id) REFERENCES status(status_id),
+    FOREIGN KEY (country_id) REFERENCES countries(country_id),
+    FOREIGN KEY (user_type_id) REFERENCES user_types(user_type_id)
+);
+
+alter table users add column is_verified boolean default false;
+alter table users add column code char(10);
+alter table users change column profile_pic profile_pic char(255) default 'prof_pic_def_123.png';
+
+ alter table users change column phone phone char(10) ;
+ alter table users change column country_id country_id int ;
+ 
+ALTER TABLE users CHANGE COLUMN created_on created_on DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP;
+
+CREATE TABLE trainers (
+    trainer_id INT PRIMARY KEY AUTO_INCREMENT,
+    user_id INT NOT NULL,
+    experience VARCHAR(500) NOT NULL,
+    skills CHAR(255) NOT NULL,
+    launched_courses INT NOT NULL DEFAULT 0,
+    profession CHAR(255) NOT NULL,
+    education CHAR(255) NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES users(user_id)
+);
+
+alter table trainers add column trainer_name char(255) not null;
+alter table trainers add column is_active boolean  default false;
+
+CREATE TABLE courses (
+    course_id INT PRIMARY KEY AUTO_INCREMENT,
+    trainer_id INT NOT NULL,
+    course_name CHAR(255) NOT NULL,
+    thumbnail CHAR(255) NOT NULL DEFAULT 'thumbnail.png',
+    learning_outcomes VARCHAR(500) NOT NULL,
+    description VARCHAR(5000) NOT NULL,
+    course_topics VARCHAR(2000) NOT NULL,
+    key_features VARCHAR(4000) NOT NULL,
+    pdf CHAR(255) NOT NULL,
+    certification VARCHAR(500) NOT NULL,
+    prerequisites VARCHAR(500) NOT NULL,
+    validity_till INT NOT NULL DEFAULT -1,
+    refund_policy CHAR(255) NOT NULL,
+    price INT NOT NULL,
+    discount INT NOT NULL DEFAULT 0,
+    subscribers INT NOT NULL DEFAULT 0,
+    total_clicks INT NOT NULL DEFAULT 0,
+    star_rank INT NOT NULL DEFAULT 0,
+    status_id INT NOT NULL DEFAULT 3,
+    videos INT NOT NULL DEFAULT 0,
+    total_hours INT NOT NULL DEFAULT 0,
+    FOREIGN KEY (trainer_id) REFERENCES trainers(trainer_id),
+    FOREIGN KEY (status_id) REFERENCES status(status_id)
+);
+
+CREATE TABLE course_topics (
+    course_topic_id INT PRIMARY KEY AUTO_INCREMENT,
+    topic_name CHAR(100) NOT NULL,
+    course_id INT NOT NULL,
+    preview BOOLEAN NOT NULL DEFAULT FALSE,
+    videos INT NOT NULL DEFAULT 0,
+    total_hours INT NOT NULL DEFAULT 0,
+    FOREIGN KEY (course_id) REFERENCES courses(course_id)
+);
+
+CREATE TABLE sub_topics (
+    sub_topic_id INT PRIMARY KEY AUTO_INCREMENT,
+    course_topic_id INT NOT NULL,
+    title CHAR(100) NOT NULL,
+    preview BOOLEAN NOT NULL DEFAULT FALSE,
+    video CHAR(255) NOT NULL,
+    duration INT NOT NULL DEFAULT 0,
+    FOREIGN KEY (course_topic_id) REFERENCES course_topics(course_topic_id)
+);
+
+CREATE TABLE carts (
+    cart_id INT PRIMARY KEY AUTO_INCREMENT,
+    user_id INT NOT NULL,
+    cart_date DATETIME NOT NULL,
+    cart_total INT NOT NULL DEFAULT 0,
+    courses_added INT NOT NULL DEFAULT 0,
+    transaction_pic CHAR(255),
+    status_id INT NOT NULL DEFAULT 8,
+    FOREIGN KEY (user_id) REFERENCES users(user_id),
+    FOREIGN KEY (status_id) REFERENCES status(status_id)
+);
+
+CREATE TABLE cart_items (
+    cart_items_id INT PRIMARY KEY AUTO_INCREMENT,
+    cart_id INT NOT NULL,
+    course_id INT NOT NULL,
+    price INT NOT NULL,
+    discount INT NOT NULL DEFAULT 0,
+    FOREIGN KEY (cart_id) REFERENCES carts(cart_id),
+    FOREIGN KEY (course_id) REFERENCES courses(course_id)
+);
+
+CREATE TABLE subscriptions (
+    subscription_id INT PRIMARY KEY AUTO_INCREMENT,
+    user_id INT NOT NULL,
+    course_id INT NOT NULL,
+    purchase_date DATETIME NOT NULL,
+    price INT NOT NULL,
+    validity_till INT NOT NULL,
+    status_id INT NOT NULL DEFAULT 5,
+    FOREIGN KEY (user_id) REFERENCES users(user_id),
+    FOREIGN KEY (course_id) REFERENCES courses(course_id),
+    FOREIGN KEY (status_id) REFERENCES status(status_id)
+);
+
+CREATE TABLE wishlist (
+    wishlist_id INT PRIMARY KEY AUTO_INCREMENT,
+    user_id INT NOT NULL,
+    course_id INT NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES users(user_id),
+    FOREIGN KEY (course_id) REFERENCES courses(course_id)
+);
+
+
+-- date - 8/2/25
+insert into status(name) value ('Unreleased');
+alter table courses change column status_id status_id int default 9;
+alter table courses change column thumbnail thumbnail char(255) default 'www_lernify_thumb_com.png';
+alter table courses change column pdf pdf char(255) default 'pdf_9_9_9_9_no_pdf.pdf';
+alter table courses change column certification certification varchar(500) default 'no_9_9_no certification';
+alter table courses change validity_till validity char(50) default '0 days';
+alter table courses change column refund_policy refund_policy char(255) default '9_9_9_9_no';
+alter table courses change column price price int default -1;
+
+create table courses_level 
+(
+    courses_level_id int primary key AUTO_INCREMENT,
+    name char(150) not null unique
+);
+
+
+INSERT INTO courses_level (name) VALUES 
+('not selected'),
+('Basic'),
+('Intermediate'),
+('Advanced'),
+('Basic to Intermediate'),
+('Basic to Advanced'),
+('Intermediate to Advanced');
+
+alter table courses add column level_id int default 1;
+alter table courses add constraint foreign key (level_id) REFERENCES courses_level(courses_level_id);
+
+
+SELECT c.*, s.name as status, l.name as level
+FROM courses c
+INNER JOIN status s ON c.status_id = s.status_id
+INNER JOIN courses_level l ON c.level_id = l.courses_level_id
+WHERE c.trainer_id = ?;
+
+SELECT c.*, s.name as status, l.name as level
+FROM courses c
+INNER JOIN status s ON c.status_id = s.status_id
+INNER JOIN courses_level l ON c.level_id = l.courses_level_id
+WHERE c.course_id = ?;
+
+
+alter table courses change column status_id status_id int default 9;
+
+alter table courses add column upload_type int default 0;
+
+-- change statuses for requerment for course status
+update status set name = 'UnPublished' where status_id = 9;
+insert into status (name) values ('Published'),('Restricted'),('Access Only'),('Not For sell');
+
+
+ALTER TABLE wishlist 
+ADD COLUMN time TIMESTAMP DEFAULT CURRENT_TIMESTAMP;
+
+
+SELECT c.*, s.name as status, l.name as level, t.trainer_id, t.trainer_name 
+FROM courses c 
+INNER JOIN status s ON c.status_id = s.status_id 
+INNER JOIN courses_level l ON c.level_id = l.courses_level_id 
+INNER JOIN trainers t ON c.trainer_id = t.trainer_id 
+WHERE c.course_id = ?;
+
+
+alter table users add column default_cart_id int unique;
+alter table users add constraint FOREIGN KEY default_cart_carts (default_cart_id) REFERENCES carts(cart_id);
+
+alter table carts drop column cart_date;
+alter table carts drop column cart_total;
+alter table carts drop column courses_added;
+alter table carts drop column transaction_pic;
+alter table carts drop column status_id;
+
+alter table carts add column is_purchased boolean default false;
+alter table carts add column purchased_time TIMESTAMP ;
+alter table carts add column transaction_id char(10);
+alter table carts add column price int ;
+alter table carts add column discount int ;
+alter table carts add column taxes int;
+
+
+alter table cart_items drop column price;
+alter table cart_items drop column discount;
+
+
+SELECT ci.course_id 
+FROM cart_items ci 
+JOIN carts c ON ci.cart_id = c.cart_id 
+WHERE c.user_id = 1 AND ci.course_id = 1;
+
+
+create table my_courses 
+(
+    my_course_id int primary key AUTO_INCREMENT,
+    user_id int not null,
+    course_id int not null,
+    validity_till date not null,
+    completed float default 0,
+    progress varchar(5000),
+    CONSTRAINT fk_my_courses_user FOREIGN KEY (user_id) REFERENCES users(user_id),
+    CONSTRAINT fk_my_courses_course FOREIGN KEY (course_id) REFERENCES courses(course_id)
+);
+
+alter table my_courses change column validity_till validity_till TIMESTAMP not null;
+alter table my_courses add column current_subtopic int default -1;
+alter table my_courses change column completed completed int default 0;
+
+
+-- recent lectures ko view karne ke liye history table
+
+create table history (
+    history_id int primary key AUTO_INCREMENT,
+    user_id int not null,
+    sub_topic_id int not null,
+    time TIMESTAMP default CURRENT_TIMESTAMP,
+    CONSTRAINT fk_history_user FOREIGN KEY (user_id) REFERENCES users(user_id),
+    CONSTRAINT fk_histry_sub_topic FOREIGN KEY (sub_topic_id) REFERENCES sub_topics(sub_topic_id)
+);
+
+
+alter table history add column lecture_index char(5) not null after history_id;
+alter table history drop column lecture_index;

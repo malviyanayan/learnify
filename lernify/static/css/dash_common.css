@@ -1,0 +1,132 @@
+/* Left Sidebar */
+.left-panel {
+    width: 25%;
+    min-width: 250px;
+    background: #fdfeff;
+    padding: 10px;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    overflow-y: auto;
+    border-right: 2px solid #ddd;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  /* Right Panel */
+  .right-panel {
+    height: 100vh;
+    margin-left: 25%;
+    width: 75%;
+    padding: 20px;
+    transition: margin-left 0.3s ease-in-out;
+    overflow-y: hidden;
+  }
+  
+  /* Fix for 1000px - 900px range */
+  @media (max-width: 1000px) {
+    .left-panel {
+      width: 28%;
+    }
+  
+    .right-panel {
+      margin-left: 28%;
+      width: 72%;
+    }
+  }
+  
+  @media (max-width: 900px) {
+    .left-panel {
+      width: 30%;
+    }
+  
+    .right-panel {
+      margin-left: 30%;
+      width: 70%;
+    }
+  }
+  
+  @media (max-width: 780px) {
+    .left-panel {
+      transform: translateX(-100%);
+      position: fixed;
+      width: 250px;
+    }
+  
+    .left-panel.show {
+      transform: translateX(0);
+    }
+  
+    .right-panel {
+      margin-left: 0;
+      width: 100%;
+    }
+  }
+  
+  /* Menu Button */
+  .menu-btn {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: none;
+    z-index: 1000;
+  }
+  
+  @media (max-width: 780px) {
+    .menu-btn {
+      display: block;
+    }
+  }
+  
+  /* User Box (New Styling) */
+  .user-box {
+    min-width: 200px;
+    max-width: 300px;
+    padding: 10px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .user-box img {
+    width: 40px;
+    /* Small Image */
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid #aaa;
+    padding: 2px;
+  }
+  
+  .user-box .user-info {
+    font-size: 12px;
+  }
+  
+  .user-box .user-info h6 {
+    margin: 0;
+    font-size: 14px;
+    font-weight: bold;
+  }
+  
+  .user-box .user-info small {
+    color: gray;
+  }
+  
+  /* Logo */
+  .logo-container {
+    text-align: left;
+    /* Logo left shift */
+  }
+  
+  .logo-container img {
+    width: 70%;
+    max-width: 160px;
+  }

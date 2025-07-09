@@ -1,0 +1,95 @@
+.btn-info.dropdown-toggle {
+  background-color: #17a2b8;
+  border-color: #17a2b8;
+  color: white;
+}
+
+.btn-info.dropdown-toggle:hover {
+  background-color: #138496;
+  border-color: #117a8b;
+}
+
+.btn-info.dropdown-toggle:focus,
+.btn-info.dropdown-toggle:active {
+  background-color: #117a8b;
+  border-color: #10707f;
+  box-shadow: none;
+}
+
+
+/* Switch Button - More Like a Dropdown */
+.btn-switch {
+  background-color: #007bff;
+  color: white !important;
+  font-weight: bold;
+  padding: 10px 18px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  transition: all 0.3s ease-in-out;
+  min-width: 170px;
+  border: none;
+}
+
+.btn-switch:hover {
+  background-color: #0056b3;
+}
+
+/* Dropdown Styling */
+.dropdown-menu {
+  border-radius: 8px;
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  border: none;
+  min-width: 200px;
+}
+
+/* Dropdown Items - Better Layout */
+.dropdown-item {
+  padding: 10px 16px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease-in-out;
+}
+
+.dropdown-item:hover {
+  background: #007bff;
+  color: white !important;
+}
+
+/* Arrow Icon for Dropdown */
+.dropdown-toggle::after {
+  content: "\f078"; /* FontAwesome Down Arrow */
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  margin-left: auto;
+  font-size: 14px;
+}
+
+/* Compact Button Styling */
+.btn-sm {
+  padding: 6px 12px;
+  font-size: 14px;
+  border-radius: 6px;
+  transition: all 0.2s ease-in-out;
+}
+
+.btn-sm i {
+  font-size: 14px;
+}
+
+/* Dropdown Styling */
+.dropdown-menu {
+  min-width: 180px;
+  border-radius: 6px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-item {
+  padding: 8px 12px;
+  font-size: 14px;
+}

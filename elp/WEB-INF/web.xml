@@ -23,14 +23,17 @@
   metadata-complete="false">
 
 
+  <!-- project per jane ka link
+  https://railway.com/project/1d914fd3-50af-49a8-9893-d42519cfbd43/service/113d5703-3e83-4d67-8dac-eba5b5bdd724/metrics?environmentId=91cefa8e-853f-4c8b-b261-b750e6cb527b -->
+
+
   <display-name>Welcome to Tomcat</display-name>
   <description>
      Welcome to Tomcat
   </description>
 
-<!-- 
   <welcome-file-list>
     <welcome-file>index.do</welcome-file>
-  </welcome-file-list> -->
+  </welcome-file-list>
 
 </web-app>

@@ -32,17 +32,7 @@
 
         <body>
 
-            <!-- Menu Button for Small Screens -->
-            <button class="menu-btn" onclick="toggleSidebar()">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="icon icon-tabler icons-tabler-outline icon-tabler-menu-2">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                    <path d="M4 6l16 0" />
-                    <path d="M4 12l16 0" />
-                    <path d="M4 18l16 0" />
-                </svg> Menu
-            </button>
+
 
             <div class="d-flex overflow-hidden">
                 <!-- Left Sidebar -->
@@ -50,14 +40,28 @@
 
                     <!-- Right Main Content -->
                     <div class="right-panel overflow-y-hidden">
-                        <div class="row justify-content-between">
-                            <div class="col-5 col-md-6 col-sm-7">
+                        <div class="row justify-content-between align-items-center z-0">
+                            <!-- Mobile Menu Toggle Button -->
+                                <button class="menu-btn btn btn-sm btn-light" id="menu-btn-lft-sdbr" onclick="toggleSidebar()">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="icon icon-tabler icon-tabler-menu-2">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                        <path d="M4 6l16 0" />
+                                        <path d="M4 12l16 0" />
+                                        <path d="M4 18l16 0" />
+                                    </svg>
+                                    <span class="ms-1">Menu</span>
+                                </button>
+
+
+                            <!-- <div class="col-5 col-md-6 col-sm-7">
                                 <form class="d-flex" role="search">
                                     <input class="form-control me-2" type="search" placeholder="Search Courses..."
                                         aria-label="Search">
                                     <button class="btn btn-outline-success" type="submit">Search</button>
                                 </form>
-                            </div>
+                            </div> -->
 
                             <div class="col-3 d-flex me-2 justify-content-end">
                                 <div style="width: max-content;height: 100%;">
@@ -102,19 +106,23 @@
                                             class="course-img rounded-top" alt="Course Image">
                                         <div class="course-info p-3">
                                             <h6 class="fw-bold mb-1">${myCourse.course.courseName}</h6>
-                                            <p class="text-muted small m-0">Instructor: ${myCourse.course.trainer.trainerName}</p>
-    
+                                            <p class="text-muted small m-0">Instructor:
+                                                ${myCourse.course.trainer.trainerName}</p>
+
                                             <div class="progress mt-2" style="height: 6px;">
-                                                <div class="progress-bar bg-success" id="progress-width-${myCourse.myCourseId}" 
-                                                     aria-valuenow="${myCourse.completed}" aria-valuemin="0" aria-valuemax="100">
+                                                <div class="progress-bar bg-success"
+                                                    id="progress-width-${myCourse.myCourseId}"
+                                                    aria-valuenow="${myCourse.completed}" aria-valuemin="0"
+                                                    aria-valuemax="100">
                                                 </div>
-                                            </div>       
-                                            
-                                            <script>document.getElementById("progress-width-${myCourse.myCourseId}").style.width = parseInt("${myCourse.completed}")+"%";</script>
-    
+                                            </div>
+
+                                            <script>document.getElementById("progress-width-${myCourse.myCourseId}").style.width = parseInt("${myCourse.completed}") + "%";</script>
+
                                             <div class="d-flex justify-content-between align-items-center mt-2">
                                                 <span class="small text-muted">${myCourse.completed}% Completed</span>
-                                                <a href="study.do?course=${myCourse.course.courseId}" class="btn btn-sm btn-primary">Continue</a>
+                                                <a href="study.do?course=${myCourse.course.courseId}"
+                                                    class="btn btn-sm btn-primary">Continue</a>
                                             </div>
                                         </div>
                                     </div>
@@ -299,6 +307,8 @@
                         }
                     }
                 })
+
+
             </script>
 
 

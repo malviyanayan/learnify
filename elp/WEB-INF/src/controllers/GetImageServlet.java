@@ -19,13 +19,14 @@ import models.User;
 public class GetImageServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        // System.out.println("Enter...");
         Integer courseId = Integer.parseInt(req.getParameter("course"));
         String type = req.getParameter("type");
         String img = req.getParameter("img");
+        // System.out.println(type + ", " + img + ", " + courseId);
 
         if (type != null) {
             if (type.equals("thumbnail") && courseId != null && img != null) {
-                
                 ServletContext context = getServletContext();
                 OutputStream os = resp.getOutputStream();
                 InputStream is = null;
@@ -37,6 +38,7 @@ public class GetImageServlet extends HttpServlet {
                     if(trainerId != null){
                         Integer userId = Trainer.getUserId(trainerId);
                         String email = User.getEmail(userId);
+                        // System.out.println(userId)
                         is = context.getResourceAsStream("WEB-INF/uploads/" + email + "/lt_" + trainerId + "/lc_" + courseId + "/" + img);
                     }
                 }

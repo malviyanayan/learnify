@@ -326,8 +326,6 @@ document.getElementById("sign-in-form").addEventListener("submit", (e) => {
           document.getElementById("verification-email-box").style.display =
             "block";
         } else {
-          console.log(data);
-
           document.getElementById("sign-in-error").style.visibility = "visible";
         }
       })
@@ -348,9 +346,26 @@ document
 
 document.getElementById("send-reset-link").addEventListener("click", (e) => {
   e.preventDefault();
-  alert(
-    "Sorry Abhi implemented nhi hai..................mafi is gustakhi ke liye"
-  );
+  let forgetEmail = document.getElementById("forget-email");
+  let params = "email=" + forgetEmail.value;
+
+  postData("forget_password.do", params)
+    .then((data) => {
+      if (data == "true") {
+        // Hide email input box
+        document.getElementById("forget-otp-email").value = forgetEmail.value;
+        document.getElementById("forget-password-box").style.display = "none";
+
+        // Show OTP + Password box
+        document.getElementById("forget-otp-box").style.display = "block";
+      } else {
+        document.getElementById("forget-error").classList.remove("d-none");
+        document.getElementById("forget-error").classList.add("d-flex");
+      }
+    })
+    .catch((error) => {
+      console.log("Error : " + error);
+    });
 });
 
 // ######### Forget Password code end ############

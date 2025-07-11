@@ -58,22 +58,32 @@ public class Utility {
         return true;
     }
 
-    public static boolean isEmailExist(String email){
-        Connection con = Database.getConnection();
-        try{
-            String query = "select email from users where email = ?;";
-            PreparedStatement ps = con.prepareStatement(query);
-            ps.setString(1, email);
+    public static boolean isEmailExist(String email) {
+    Connection con = Database.getConnection();
+    boolean found = false;
 
-            ResultSet rs = ps.executeQuery();
-            if(rs.next())return true;
-            con.close();
-        }catch(SQLException e){
-            e.printStackTrace();
-            try{con.close();}catch(SQLException exp){exp.printStackTrace();}
+    try {
+        String query = "SELECT email FROM users WHERE TRIM(email) = ?";
+        PreparedStatement ps = con.prepareStatement(query);
+        ps.setString(1, email);
+
+        ResultSet rs = ps.executeQuery();
+        if (rs.next()) {
+            found = true;
         }
-        return false;
+
+    } catch (SQLException e) {
+        e.printStackTrace();
+    } finally {
+        try {
+            con.close();
+        } catch (SQLException exp) {
+            exp.printStackTrace();
+        }
     }
+
+    return found;
+}
 
     public static String generateVerificationCode() {
         int length = 6;

@@ -63,26 +63,30 @@
     }
   }
   
-  /* Menu Button */
+  /* Menu Button (Visible Only on Small Screens) */
+.menu-btn {
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: none;
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.15);
+  width: max-content;
+}
+
+/* Show Button on Mobile View */
+@media (max-width: 780px) {
   .menu-btn {
-    position: fixed;
-    top: 10px;
-    left: 10px;
-    background: #007bff;
-    color: white;
-    border: none;
-    padding: 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    display: none;
-    z-index: 1000;
+    display: flex;
+    margin-bottom: 10px;
   }
-  
-  @media (max-width: 780px) {
-    .menu-btn {
-      display: block;
-    }
-  }
+}
+
   
   /* User Box (New Styling) */
   .user-box {

@@ -1,0 +1,11 @@
+.search-items-navbar{
+    max-width: 40%;
+
+}
+
+@media (max-width: 993px) {
+    .search-items-navbar {
+        margin: 10px auto;
+        max-width: 100%;
+    }
+}

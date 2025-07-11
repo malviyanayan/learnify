@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="static/css/navbar.css">
+
 <nav class="navbar navbar-expand-lg bg-white shadow-sm fixed-top py-2">
     <div class="container-fluid px-3">
         <!-- Brand Logo -->
@@ -26,7 +28,7 @@
             </ul>
 
             <!-- Search Box (Improved Design) -->
-            <form class="d-flex flex-grow-1 mx-3" style="max-width: 40%;">
+            <form class="d-flex flex-grow-1 mx-3 search-items-navbar">
                 <div class="input-group shadow-sm w-100"
                     style="border-radius: 30px; background: white; overflow: hidden;">
                     <input class="form-control border-0 px-4 py-2" type="search" placeholder="Search Courses..." autocomplete="off"

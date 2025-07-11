@@ -203,8 +203,8 @@
                             required>
                     </div>
 
-                    <div class="alert alert-danger text-center mt-3 p-2 fs-6 d-flex justify-content-center align-items-center"
-                        id="forget-error" style="display: none;">
+                    <div class="alert alert-danger text-center mt-3 p-2 fs-6 d-flex justify-content-center align-items-center d-none"
+                        id="forget-error">
                         <i class="fas fa-exclamation-circle me-2"></i>
                         <small>Invalid email address. Please try again.</small>
                     </div>
@@ -222,6 +222,138 @@
             </div>
         </div>
     </div>
+
+    <!-- OTP + Password Reset Box -->
+    <div class="container border p-4 rounded-3 border-primary-subtle" id="forget-otp-box" style="margin-top: 80px;display: none;">
+        <div class="row justify-content-center align-items-center">
+            <div class="col-md-6 d-none d-md-block">
+                <img src="static/media/images/sign/verify.jpg" class="img-fluid rounded" alt="Verify OTP">
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="p-4 shadow bg-white rounded">
+                    <h3 class="text-center mb-3"><i class="fas fa-key"></i> Reset Password</h3>
+                    <p class="text-center">Enter the OTP sent to your email and set a new password.</p>
+
+                    <!-- Hidden email field -->
+                    <input type="email" id="forget-otp-email" style="display: none;">
+
+                    <!-- OTP Inputs -->
+                    <div class="row g-2 justify-content-center mt-3">
+                        <div class="col-2"><input type="text" maxlength="1" class="form-control text-center fs-4"
+                                id="forget-c1"></div>
+                        <div class="col-2"><input type="text" maxlength="1" class="form-control text-center fs-4"
+                                id="forget-c2"></div>
+                        <div class="col-2"><input type="text" maxlength="1" class="form-control text-center fs-4"
+                                id="forget-c3"></div>
+                        <div class="col-2"><input type="text" maxlength="1" class="form-control text-center fs-4"
+                                id="forget-c4"></div>
+                        <div class="col-2"><input type="text" maxlength="1" class="form-control text-center fs-4"
+                                id="forget-c5"></div>
+                        <div class="col-2"><input type="text" maxlength="1" class="form-control text-center fs-4"
+                                id="forget-c6"></div>
+                    </div>
+
+                    <!-- New Password -->
+                    <div class="form-group mt-4">
+                        <label for="forget-new-password">New Password</label>
+                        <input type="password" class="form-control" id="forget-new-password"
+                            placeholder="Enter new password">
+                    </div>
+
+                    <!-- Confirm Password -->
+                    <div class="form-group mt-3">
+                        <label for="forget-confirm-password">Confirm Password</label>
+                        <input type="password" class="form-control" id="forget-confirm-password"
+                            placeholder="Confirm new password">
+                    </div>
+
+                    <!-- Error Message -->
+                    <div class="alert alert-danger text-center mt-3 p-2 fs-6 d-flex justify-content-center align-items-center"
+                        id="forget-otp-error" style="display: none;">
+                        <i class="fas fa-exclamation-circle me-1"></i>
+                        <small id="forget-otp-error-msg">Invalid input.</small>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="d-grid mt-4">
+                        <button type="button" class="btn btn-primary" id="forget-otp-submit">
+                            <i class="fas fa-check-circle"></i> Submit
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JS for submission -->
+    <script>
+        document.getElementById("forget-otp-submit").addEventListener("click", () => {
+            const otp =
+                document.getElementById("forget-c1").value +
+                document.getElementById("forget-c2").value +
+                document.getElementById("forget-c3").value +
+                document.getElementById("forget-c4").value +
+                document.getElementById("forget-c5").value +
+                document.getElementById("forget-c6").value;
+
+                const newPass = document.getElementById("forget-new-password").value.trim();
+                const confirmPass = document.getElementById("forget-confirm-password").value.trim();
+                const email = document.getElementById("forget-otp-email").value.trim();
+
+            const errorBox = document.getElementById("forget-otp-error");
+            const errorMsg = document.getElementById("forget-otp-error-msg");
+
+            // Validation
+            if (otp.length !== 6 || isNaN(otp)) {
+                errorMsg.innerText = "OTP must be 6 digits.";
+                errorBox.style.display = "flex";
+                return;
+            }
+
+            if (newPass.length < 6) {
+                errorMsg.innerText = "Password must be at least 6 characters.";
+                errorBox.style.display = "flex";
+                return;
+            }
+
+            if (newPass !== confirmPass) {
+                errorMsg.innerText = "Passwords do not match.";
+                errorBox.style.display = "flex";
+                return;
+            }
+
+            // Hide error if everything is valid
+            errorBox.style.display = "none";
+
+            // Send POST request to verify and reset password
+            fetch("verify_forget_otp.do", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded"
+                },
+                body:
+                    "otp=" + encodeURIComponent(otp) +
+                    "&new_password=" + encodeURIComponent(newPass) +
+                    "&email=" + encodeURIComponent(email)
+            })
+                .then(res => res.text())
+                .then(data => {
+                    if (data.trim() === "true") {
+                        window.location.href = "get_started.do";
+                    } else {
+                        errorMsg.innerText = "OTP verification failed or password not updated.";
+                        errorBox.style.display = "flex";
+                    }
+                })
+                .catch(err => {
+                    console.error("Error:", err);
+                    errorMsg.innerText = "Server error. Try again.";
+                    errorBox.style.display = "flex";
+                });
+        });
+    </script>
+
+
 
 
     <!-- Sign In Option -->

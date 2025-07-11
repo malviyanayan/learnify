@@ -181,88 +181,198 @@
 
                     <%@ include file="navbar.jsp" %>
 
-                    <div class="container" style="margin-top: 100px;">
-                        <div class="card shadow-lg p-5">
-                            <h2 class="text-center mb-4"><i class="fas fa-question-circle"></i> Help & Support</h2>
-                            <p class="text-center">We are here to assist you with any queries related to our platform. Explore the FAQs or reach out to us for personalized support.</p>
-                    
-                            <div class="row mt-4">
-                                <div class="col-md-6">
-                                    <h4><i class="fas fa-info-circle text-primary"></i> Frequently Asked Questions</h4>
-                                    <div class="accordion" id="faqAccordion">
-                                        <div class="accordion-item">
-                                            <h2 class="accordion-header">
-                                                <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#faq1" aria-expanded="false">
-                                                    <i class="fas fa-chevron-right me-2"></i> How do I enroll in a course?
-                                                </button>
-                                            </h2>
-                                            <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                                                <div class="accordion-body">
-                                                    You can enroll by selecting a course and clicking on the "Enroll Now" button.
+                        <div class="container" style="margin-top: 100px;">
+                            <div class="card p-5">
+                                <h2 class="text-center mb-4"><i class="fas fa-question-circle"></i> Help & Support</h2>
+                                <p class="text-center">We are here to assist you with any queries related to our
+                                    platform. Explore the FAQs or reach out to us for personalized support.</p>
+
+                                <div class="row mt-4">
+                                    <div>
+                                        <h4 class="my-3 fs-2"><i class="fas fa-info-circle text-primary"></i> Frequently
+                                            Asked Questions</h4>
+                                        <div class="accordion" id="faqAccordion">
+                                            <div class="accordion-item">
+                                                <h2 class="accordion-header">
+                                                    <button class="accordion-button collapsed" data-bs-toggle="collapse"
+                                                        data-bs-target="#faq1" aria-expanded="false">
+                                                        <i class="fas fa-chevron-right me-2"></i> How do I enroll in a
+                                                        course?
+                                                    </button>
+                                                </h2>
+                                                <div id="faq1" class="accordion-collapse collapse"
+                                                    data-bs-parent="#faqAccordion">
+                                                    <div class="accordion-body">
+                                                        You can enroll by selecting a course and clicking on the "Enroll
+                                                        Now" button.
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    
-                                        <div class="accordion-item">
-                                            <h2 class="accordion-header">
-                                                <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#faq2" aria-expanded="false">
-                                                    <i class="fas fa-chevron-right me-2"></i> What payment methods do you accept?
-                                                </button>
-                                            </h2>
-                                            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                                                <div class="accordion-body">
-                                                    We accept Credit/Debit Cards, PayPal, and UPI transactions.
+
+                                            <div class="accordion-item">
+                                                <h2 class="accordion-header">
+                                                    <button class="accordion-button collapsed" data-bs-toggle="collapse"
+                                                        data-bs-target="#faq2" aria-expanded="false">
+                                                        <i class="fas fa-chevron-right me-2"></i> What payment methods
+                                                        do you accept?
+                                                    </button>
+                                                </h2>
+                                                <div id="faq2" class="accordion-collapse collapse"
+                                                    data-bs-parent="#faqAccordion">
+                                                    <div class="accordion-body">
+                                                        We accept Credit/Debit Cards, PayPal, and UPI transactions.
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    
-                                        <div class="accordion-item">
-                                            <h2 class="accordion-header">
-                                                <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#faq3" aria-expanded="false">
-                                                    <i class="fas fa-chevron-right me-2"></i> How do I get my course certificate?
-                                                </button>
-                                            </h2>
-                                            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                                                <div class="accordion-body">
-                                                    After completing the course and passing the assessment, you can download your certificate from your dashboard.
+
+                                            <div class="accordion-item">
+                                                <h2 class="accordion-header">
+                                                    <button class="accordion-button collapsed" data-bs-toggle="collapse"
+                                                        data-bs-target="#faq3" aria-expanded="false">
+                                                        <i class="fas fa-chevron-right me-2"></i> How do I get my course
+                                                        certificate?
+                                                    </button>
+                                                </h2>
+                                                <div id="faq3" class="accordion-collapse collapse"
+                                                    data-bs-parent="#faqAccordion">
+                                                    <div class="accordion-body">
+                                                        After completing the course and passing the assessment, you can
+                                                        download your certificate from your dashboard.
+                                                    </div>
                                                 </div>
                                             </div>
+
+                                            <!-- FAQ 4 -->
+                                            <div class="accordion-item">
+                                                <h2 class="accordion-header">
+                                                    <button class="accordion-button collapsed" data-bs-toggle="collapse"
+                                                        data-bs-target="#faq4" aria-expanded="false">
+                                                        <i class="fas fa-chevron-right me-2"></i> Will I get a
+                                                        certificate after completing a course?
+                                                    </button>
+                                                </h2>
+                                                <div id="faq4" class="accordion-collapse collapse">
+                                                    <div class="accordion-body">
+                                                        Yes, after completing the course and passing the required
+                                                        assessments, students can download their certificate from the
+                                                        dashboard.
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- FAQ 5 -->
+                                            <div class="accordion-item">
+                                                <h2 class="accordion-header">
+                                                    <button class="accordion-button collapsed" data-bs-toggle="collapse"
+                                                        data-bs-target="#faq5" aria-expanded="false">
+                                                        <i class="fas fa-chevron-right me-2"></i> Can I access purchased
+                                                        courses forever?
+                                                    </button>
+                                                </h2>
+                                                <div id="faq5" class="accordion-collapse collapse">
+                                                    <div class="accordion-body">
+                                                        Yes, once you purchase a course, you will have lifetime access
+                                                        to it, unless specified otherwise by the trainer.
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- FAQ 6 -->
+                                            <div class="accordion-item">
+                                                <h2 class="accordion-header">
+                                                    <button class="accordion-button collapsed" data-bs-toggle="collapse"
+                                                        data-bs-target="#faq6" aria-expanded="false">
+                                                        <i class="fas fa-chevron-right me-2"></i> Can I get a refund if
+                                                        I am not satisfied with the course?
+                                                    </button>
+                                                </h2>
+                                                <div id="faq6" class="accordion-collapse collapse">
+                                                    <div class="accordion-body">
+                                                        Yes, we offer a refund policy within the first 7 days of
+                                                        purchase, provided you have not completed more than 20% of the
+                                                        course.
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- FAQ 7 -->
+                                            <div class="accordion-item">
+                                                <h2 class="accordion-header">
+                                                    <button class="accordion-button collapsed" data-bs-toggle="collapse"
+                                                        data-bs-target="#faq7" aria-expanded="false">
+                                                        <i class="fas fa-chevron-right me-2"></i> How can I contact
+                                                        support?
+                                                    </button>
+                                                </h2>
+                                                <div id="faq7" class="accordion-collapse collapse">
+                                                    <div class="accordion-body">
+                                                        You can contact our support team via email at
+                                                        support@example.com or use the live chat option available on the
+                                                        website.
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- FAQ 8 -->
+                                            <div class="accordion-item">
+                                                <h2 class="accordion-header">
+                                                    <button class="accordion-button collapsed" data-bs-toggle="collapse"
+                                                        data-bs-target="#faq8" aria-expanded="false">
+                                                        <i class="fas fa-chevron-right me-2"></i> How do I enroll in a
+                                                        course?
+                                                    </button>
+                                                </h2>
+                                                <div id="faq8" class="accordion-collapse collapse">
+                                                    <div class="accordion-body">
+                                                        You can enroll by selecting a course and clicking on the "Enroll
+                                                        Now" button.
+                                                    </div>
+                                                </div>
+                                            </div>
+
                                         </div>
+
                                     </div>
-                                    
+
+                                    <div class="mt-5">
+                                        <h4
+                                            class="d-flex gap-2 align-items-center fs-1 justify-content-center fw-bold my-3">
+                                            <i class="fas fa-envelope text-success fs-3 fw-bold"></i> Contact Us</h4>
+                                        <form>
+                                            <div class="mb-3">
+                                                <label class="form-label"><i class="fas fa-user"></i> Your Name</label>
+                                                <input type="text" class="form-control" placeholder="Enter your name">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label"><i class="fas fa-envelope"></i> Email
+                                                    Address</label>
+                                                <input type="email" class="form-control" placeholder="Enter your email">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label"><i class="fas fa-comments"></i> Your
+                                                    Question</label>
+                                                <textarea class="form-control" rows="4"
+                                                    placeholder="Type your question here"></textarea>
+                                            </div>
+                                            <button type="submit" class="btn btn-primary w-100" disabled><i
+                                                    class="fas fa-paper-plane"></i> Submit</button>
+                                        </form>
+                                    </div>
                                 </div>
-                    
-                                <div class="col-md-6">
-                                    <h4><i class="fas fa-envelope text-success"></i> Contact Us</h4>
-                                    <form>
-                                        <div class="mb-3">
-                                            <label class="form-label"><i class="fas fa-user"></i> Your Name</label>
-                                            <input type="text" class="form-control" placeholder="Enter your name">
-                                        </div>
-                                        <div class="mb-3">
-                                            <label class="form-label"><i class="fas fa-envelope"></i> Email Address</label>
-                                            <input type="email" class="form-control" placeholder="Enter your email">
-                                        </div>
-                                        <div class="mb-3">
-                                            <label class="form-label"><i class="fas fa-comments"></i> Your Question</label>
-                                            <textarea class="form-control" rows="4" placeholder="Type your question here"></textarea>
-                                        </div>
-                                        <button type="submit" class="btn btn-primary w-100"><i class="fas fa-paper-plane"></i> Submit</button>
-                                    </form>
+
+                                <div class="text-center mt-5">
+                                    <h5><i class="fas fa-life-ring text-primary"></i> Need More Help?</h5>
+                                    <p>Our team is available 24/7 to assist you with any queries. Don't hesitate to get
+                                        in touch.</p>
+                                    <button disabled class="btn btn-lg btn-success"><i class="fas fa-headset"></i> Live
+                                        Chat Support</button>
                                 </div>
-                            </div>
-                    
-                            <div class="text-center mt-5">
-                                <h5><i class="fas fa-life-ring text-primary"></i> Need More Help?</h5>
-                                <p>Our team is available 24/7 to assist you with any queries. Don't hesitate to get in touch.</p>
-                                <a href="#" class="btn btn-lg btn-success"><i class="fas fa-headset"></i> Live Chat Support</a>
                             </div>
                         </div>
-                    </div>
-                    
-                    
-                    
-                    
+
+
+
+
 
                         <%@ include file="footer.jsp" %>
 

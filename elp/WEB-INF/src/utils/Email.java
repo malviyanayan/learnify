@@ -12,21 +12,21 @@ import javax.mail.internet.MimeMessage;
 
 public class Email {
 
-    public String forgetPasswordEmail(String email){
+    public String forgetPasswordEmail(String name, String email){
         String code = Utility.generateVerificationCode();
         String htmlString = "<div style=\"font-family: Arial, sans-serif;background-color: #f4f4f4;margin: 0;padding: 0;\">" +
         "<div style=\"max-width: 600px;margin: 50px auto;background-color: #fff;padding: 20px;box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);\">" +
         "<div style=\"text-align: center;padding: 10px 0;\">" +
-        "<span><a style=\"font-size: 1.3rem;font-weight: bold;color: #007bff;\" href=\"http://localhost:8080/expense_app\">Expense Tracker</a></span>" +
+        "<span><a style=\"font-size: 1.3rem;font-weight: bold;color: #007bff;\" href=\"http://localhost:8080/expense_app\">Learnify</a></span>" +
         "</div>" +
         "<div style=\"margin: 20px 0;\">" +
-        "<p style=\"font-size: 16px;color: #555;\">Dear customer,</p>" +
+        "<p style=\"font-size: 16px;color: #555;\">Dear" + name + ",</p>" +
         "<p>We received a request to reset your password. Please use the verification code below to reset your password:</p>" +
         "<div style=\"font-size: 24px;font-weight: bold;color: #333;text-align: center;margin: 20px 0;\">" + code + "</div>" +
         "<p>If you did not request this code, please ignore this email.</p>" +
         "</div>" +
         "<div style=\"text-align: center;padding: 10px 0;color: #999;font-size: 12px;\">" +
-        "<p>&copy; 2024 Expense Tracker. All rights reserved.</p>" +
+        "<p>&copy; 2024 Learnify. All rights reserved.</p>" +
         "</div>" +
         "</div>" +
         "</div>";
@@ -78,7 +78,7 @@ public class Email {
         "<p>If you did not request this code, please ignore this email.</p>" +
         "</div>" +
         "<div style=\"text-align: center;padding: 10px 0;color: #999;font-size: 12px;\">" +
-        "<p>&copy; 2024 Expense Tracker. All rights reserved.</p>" +
+        "<p>&copy; 2024 Learnify. All rights reserved.</p>" +
         "</div>" +
         "</div>" +
         "</div>";

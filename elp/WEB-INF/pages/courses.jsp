@@ -179,25 +179,26 @@
                     <%@ include file="navbar.jsp" %>
 
                         <!-- Sub Navbar -->
-                        <div class="sub-navbar bg-light shadow-sm w-100 px-3 py-2 sticky-top"
+                        <div class="filter-sort-bar-wrapper bg-light shadow-sm w-100 px-3 py-2 sticky-top"
                             style="top: 84px; z-index: 1020;">
                             <div
-                                class="container-fluid d-flex justify-content-between align-items-center flex-wrap gap-2">
+                                class="filter-sort-bar-container d-flex justify-content-between align-items-center flex-wrap gap-2">
 
-                                <!-- Left Side: Filter & Sort -->
-                                <div class="dropdown-container position-relative">
-                                    <i class="fas fa-star dropdown-icon"></i>
-                                    <select class="form-select form-select-sm rounded-3">
+                                <!-- Left Filter Dropdown -->
+                                <div class="filter-sort-bar-dropdown position-relative">
+                                    <i class="fas fa-star filter-sort-bar-icon"></i>
+                                    <select class="filter-sort-bar-select form-select form-select-sm rounded-3">
                                         <option value="popular" selected>Most Popular</option>
                                         <option value="latest">Latest Courses</option>
                                         <option value="rating">Top Rated</option>
                                     </select>
                                 </div>
 
-                                <!-- Right Side: Sort Selection -->
-                                <div class="dropdown-container position-relative">
-                                    <i class="fas fa-sort dropdown-icon"></i>
-                                    <select class="form-select form-select-sm rounded-3" id="sort-select">
+                                <!-- Right Sort Dropdown -->
+                                <div class="filter-sort-bar-dropdown position-relative">
+                                    <i class="fas fa-sort filter-sort-bar-icon"></i>
+                                    <select class="filter-sort-bar-select form-select form-select-sm rounded-3"
+                                        id="sort-select">
                                         <option value="default" selected>Sort By</option>
                                         <option value="price_low_high">Price: Low to High</option>
                                         <option value="price_high_low">Price: High to Low</option>
@@ -207,24 +208,25 @@
                             </div>
                         </div>
 
-
-                        <!-- Optimized CSS -->
+                        <!-- Scoped Unique Styles -->
                         <style>
-                            /* Sub Navbar */
-                            .sub-navbar {
+                            .filter-sort-bar-wrapper {
                                 background: #f8f9fa;
                                 padding: 10px 15px;
                                 box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
                                 border-radius: 10px;
                             }
 
-                            /* Dropdown Styling */
-                            .dropdown-container {
+                            .filter-sort-bar-container {
+                                width: 100%;
+                            }
+
+                            .filter-sort-bar-dropdown {
                                 flex: 1;
                                 max-width: 250px;
                             }
 
-                            .dropdown-container select {
+                            .filter-sort-bar-select {
                                 padding: 6px 30px 6px 12px;
                                 font-size: 14px;
                                 font-weight: 500;
@@ -235,8 +237,7 @@
                                 border-radius: 6px;
                             }
 
-                            /* Dropdown Icons */
-                            .dropdown-icon {
+                            .filter-sort-bar-icon {
                                 position: absolute;
                                 right: 12px;
                                 top: 50%;
@@ -245,21 +246,21 @@
                                 font-size: 14px;
                             }
 
-                            /* Responsive Fix */
                             @media (max-width: 768px) {
-                                .container-fluid {
+                                .filter-sort-bar-container {
                                     flex-wrap: nowrap !important;
                                     overflow-x: auto;
                                     justify-content: center;
                                 }
 
-                                .dropdown-container {
+                                .filter-sort-bar-dropdown {
                                     flex: none;
                                     width: auto;
                                     min-width: 120px;
                                 }
                             }
                         </style>
+
 
 
                         <!-- Home -->
@@ -308,11 +309,11 @@
 
                         <%@ include file="footer.jsp" %>
 
-                        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-                            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-                            crossorigin="anonymous"></script>
+                            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+                                integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+                                crossorigin="anonymous"></script>
 
-                        <script src="static/js/courses.js"></script>
+                            <script src="static/js/courses.js"></script>
 
             </body>
 

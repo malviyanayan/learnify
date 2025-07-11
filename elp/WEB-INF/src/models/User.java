@@ -512,6 +512,30 @@ public class User {
         return name;
     }
 
+    public static boolean setNewPassword(String email, String newPassword) {
+        Connection con = Database.getConnection();
+        try {
+            String encryptedPassword = spe.encryptPassword(newPassword);
+            String query = "UPDATE users SET password = ? WHERE email = ?";
+            PreparedStatement ps = con.prepareStatement(query);
+            ps.setString(1, encryptedPassword);
+            ps.setString(2, email);
+
+            if (ps.executeUpdate() != 0) {
+                return true;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                con.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return false;
+    }
+
     public static boolean verifyEmail(String email, String code) {
         Connection con = Database.getConnection();
         try {

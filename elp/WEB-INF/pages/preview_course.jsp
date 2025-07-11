@@ -22,7 +22,7 @@
         <!-- Navbar -->
         <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom fixed-top">
             <div class="container-fluid">
-                <button class="btn d-lg-none" data-bs-toggle="offcanvas" data-bs-target="#sidebar">
+                <button class="btn btn-light d-lg-none" id="openSidebarBtn">
                     <i class="fas fa-bars"></i>
                 </button>
 
@@ -39,13 +39,35 @@
 
         <div class="container-fluid">
             <div class="row">
+
+                <style>
+                    #left-sidebar-topics {
+                        /* Default (desktop): show as column */
+                        width: 25%;
+                    }
+
+                    @media (max-width: 991px) {
+                        #left-sidebar-topics {
+                            position: fixed;
+                            top: 56px;
+                            left: 0;
+                            width: 100%;
+                            height: calc(100vh - 56px);
+                            background-color: #fff;
+                            z-index: 2000;
+                            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.15);
+                            overflow-y: auto;
+                            display: none;
+                        }
+                    }
+                </style>
+
                 <!-- Sidebar (Topics) -->
                 <c:if test="${course.uploadType == 2}">
                     <c:set var="count1" value="1" />
                     <c:set var="count2" value="1" />
 
-                    <div
-                        class="col-lg-3 d-none d-lg-block border-end bg-light p-3 pt-4 overflow-auto custom-scrollbar mt-5 mb-2">
+                    <div id="left-sidebar-topics" class="bg-light p-3 pt-4 custom-scrollbar">
                         <h5 class="text-center mt-2 fw-bold text-primary">Lectures</h5>
                         <div class="accordion" id="lectureAccordion">
 
@@ -180,7 +202,50 @@
 
 
 
+                <script>
+                    document.addEventListener("DOMContentLoaded", function () {
+                        var sidebar = document.getElementById("left-sidebar-topics");
+                        var openBtn = document.getElementById("openSidebarBtn");
 
+                        if (sidebar && openBtn) {
+                            function hideSidebar() {
+                                sidebar.style.display = "none";
+                            }
+
+                            function showSidebar() {
+                                sidebar.style.display = "block";
+                            }
+
+                            if (window.innerWidth < 992) hideSidebar();
+
+                            openBtn.addEventListener("click", function (e) {
+                                e.stopPropagation(); // Prevent immediate closing
+                                if (sidebar.style.display === "block") {
+                                    hideSidebar();
+                                } else {
+                                    showSidebar();
+                                }
+                            });
+
+                            document.addEventListener("click", function (e) {
+                                if (window.innerWidth < 992 && sidebar.style.display === "block") {
+                                    if (!sidebar.contains(e.target) && e.target !== openBtn) {
+                                        hideSidebar();
+                                    }
+                                }
+                            });
+
+                            window.addEventListener("resize", function () {
+                                if (window.innerWidth >= 992) {
+                                    sidebar.style.display = "block";
+                                } else {
+                                    hideSidebar();
+                                }
+                            });
+                        }
+                    });
+
+                </script>
 
                 <!-- Main Content (Current Lecture) -->
                 <div class="col-lg-9 p-4 vh-100 overflow-auto mt-5 mb-2 z-2">
@@ -189,27 +254,30 @@
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb bg-light p-3 rounded shadow-sm">
                                 <li class="breadcrumb-item">
-                                    <a href="trainer_course.do?course_id=${course.courseId}" class="text-decoration-none text-dark fw-semibold">
+                                    <a href="trainer_course.do?course_id=${course.courseId}"
+                                        class="text-decoration-none text-dark fw-semibold">
                                         ${course.courseName}
                                     </a>
                                 </li>
                                 <c:if test="${course.uploadType == 2}">
                                     <li class="breadcrumb-item text-secondary">${current.topic.topicName}</li>
                                 </c:if>
-                                <li class="breadcrumb-item active text-primary fw-bold" aria-current="page"><span class="text-secondary">${loc}</span> ${current.title}</li>
+                                <li class="breadcrumb-item active text-primary fw-bold" aria-current="page"><span
+                                        class="text-secondary">${loc}</span> ${current.title}</li>
                             </ol>
                         </nav>
                     </div>
-                
+
                     <!-- Video Section -->
                     <div class="mx-auto rounded overflow-hidden shadow-sm mt-3"
                         style="max-width: 92%; aspect-ratio: 16/9; background: #000; position: relative;">
-                        
+
                         <c:choose>
                             <c:when test="${current.preview}">
                                 <video controls controlsList="nodownload" class="w-100 h-100 rounded"
                                     style="object-fit: cover;">
-                                    <source src="get_video.do?lecture=${course.courseId}+${current.subTopicId}&for=preview"
+                                    <source
+                                        src="get_video.do?lecture=${course.courseId}+${current.subTopicId}&for=preview"
                                         type="video/mp4">
                                     Your browser does not support the video tag.
                                 </video>
@@ -217,33 +285,37 @@
                             <c:otherwise>
                                 <div class="d-flex justify-content-center align-items-center w-100 h-100 text-white position-relative"
                                     style="background: url('get_image.do?type=thumbnail&course=${course.courseId}&img=${course.thumbnail}') center/cover no-repeat;">
-                                    
-                                    <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark bg-opacity-50"></div>
-                
-                                    <div class="position-relative text-center p-3 bg-white text-dark rounded shadow-lg opacity-90">
+
+                                    <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark bg-opacity-50">
+                                    </div>
+
+                                    <div
+                                        class="position-relative text-center p-3 bg-white text-dark rounded shadow-lg opacity-90">
                                         <i class="fas fa-exclamation-circle text-danger fs-4"></i>
                                         <p class="fw-bold mt-2 mb-1">To continue watching, please subscribe.</p>
-                                        <a href="subscribe.do" class="btn btn-primary btn-sm fw-semibold">Subscribe Now</a>
+                                        <a href="subscribe.do" class="btn btn-primary btn-sm fw-semibold">Subscribe
+                                            Now</a>
                                     </div>
-                
-                                    <span class="position-absolute bottom-0 end-0 m-2 px-3 py-1 bg-black bg-opacity-75 rounded text-white small">
+
+                                    <span
+                                        class="position-absolute bottom-0 end-0 m-2 px-3 py-1 bg-black bg-opacity-75 rounded text-white small">
                                         <i class="far fa-clock"></i> ${current.formattedTime()}
                                     </span>
                                 </div>
                             </c:otherwise>
                         </c:choose>
                     </div>
-                
+
                     <!-- Lecture Title -->
                     <div class="mt-4 mb-5 z-3">
                         <h2 class="fw-bold text-dark rounded border bg-white shadow-sm p-2 mx-4 fs-2"
-                        style="margin: auto;">
-                        <span class="text-secondary">${loc}</span> ${current.title}
-                    </h2>
+                            style="margin: auto;">
+                            <span class="text-secondary">${loc}</span> ${current.title}
+                        </h2>
                     </div>
                 </div>
-                
-            
+
+
             </div>
         </div>
 
